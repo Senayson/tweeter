@@ -1,0 +1,42 @@
+
+.new-tweet {
+  width: 100%;
+ background-color: rgb(red, rgb(206, 209, 206), blue);
+}
+
+#tweet-text {
+  width: 100%;
+  border: none;
+  border-bottom-width: 5px;
+  border-bottom-color: rgb(56, 55, 55);
+  border-bottom-style: solid;
+  margin-bottom: 5px;  
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  font-family: bungee, sans-serif;
+}
+form label {
+  font-size: 00.75em;
+}
+
+.tweeter {
+  display: flex;
+}
+
+.counter {
+  display: flex;
+  align-self: flex-end;
+}
+
+#Tweetbutton {
+  color: rgb(251, 251, 251);
+  font-size: 0.75em;
+  border-width: 2.5px;
+  border-color: rgb(93, 144, 240);
+  display: flex;
+  align-self: flex-start;
+  background-color : rgb(red, green, rgb(49, 124, 236));
+}
