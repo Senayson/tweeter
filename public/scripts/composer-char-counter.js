@@ -22,3 +22,6 @@ $(document).ready(function() {
    })
 
 })
+
+const timestamp = document.querySelectorAll('Timestamp');
+timestamp = timeago.format(new Date());

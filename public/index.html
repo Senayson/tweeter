@@ -21,7 +21,7 @@
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.6.7/jquery.timeago.min.js"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
@@ -54,12 +54,21 @@
   <h2>Compose Tweet</h2>
   <form action="/tweets"  method="POST">
     <label for="tweet-text">What are you humming about?</label>
-    <textarea name="text" id="tweet-text"></textarea>
+    <textarea name="text" class="tweet-text"></textarea>
     <div class="tweeter">
       <button type="submit" id="Tweetbutton">Tweet</button>
       <output name="counter" class="counter" for="tweet-text">140</output>
     </div>
   </form>
+</section>
+<br>
+<section class="eachTweet">
+  <h4> 😯  Senay Hailu</h4>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et </p>
+    <div class="tweeter">
+      <span id="TimeStamp">O </span>
+      <div class="icons"><i class="fas fa-flag"></i> <i class="fas fa-retweet"></i> <i class="fas fa-heart"></i></div>
+    </div>
 </section>
     </main>
   </body>

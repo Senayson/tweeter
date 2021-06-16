@@ -7,11 +7,11 @@
  background-color: rgb(red, rgb(206, 209, 206), blue);
 }
 
-#tweet-text {
+.tweet-text {
   width: 100%;
   border: none;
   border-bottom-width: 5px;
-  border-bottom-color: rgb(56, 55, 55);
+  border-bottom-color: rgb(136, 133, 133);
   border-bottom-style: solid;
   margin-bottom: 5px;
   background-color: #F4F1EC;
@@ -50,4 +50,45 @@ form label {
   display: flex;
 
   background-color : rgb(49, 124, 236);
+}
+
+.eachTweet {
+  display: flex;
+  flex-direction: column;
+  border-width: 5px;
+  border-color: rgb(136, 133, 133);
+  border-style: solid;
+  margin-bottom: 5px;
+  
+  width: 80%;
+ background-color: rgb(red, rgb(206, 209, 206), blue);
+}
+
+.eachTweet p {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  border-bottom-width: 5px;
+  border-bottom-color: rgb(136, 133, 133);
+  border-bottom-style: solid;
+  margin-bottom: 5px;
+}
+
+.icons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+
+.eachTweet:hover {
+  box-shadow: 10px 10px grey;
+
+}
+.icons i{
+  color:rgb(49, 124, 236);
+}
+
+.icons i:hover{
+  color: grey;
 }
