@@ -38,6 +38,10 @@ form label {
 
 }
 
+.negative {
+  color: red;
+}
+
 #Tweetbutton {
   color: rgb(251, 251, 251);
   font-size: 0.75em;
