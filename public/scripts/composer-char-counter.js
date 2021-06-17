@@ -24,16 +24,7 @@ $(document).ready(function() {
    })
 
 
-   $("Form").on('submit', function(event){
-    event.preventDefault();
-    console.log('Submitted'); 
   
-    // $.ajax(event, { method: 'POST' })
-    //   .then(function (event) {
-    //     console.log('Success: ', morePostsHtml);
-    //     $button.replaceWith(morePostsHtml);
-    //   });
-  });
 
 });
 

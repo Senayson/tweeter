@@ -3,7 +3,7 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-$(document).ready(function() {
+$(document).ready(function () {
 
   const data = [
     {
@@ -22,7 +22,8 @@ $(document).ready(function() {
       "user": {
         "name": "Descartes",
         "avatars": "https://i.imgur.com/nlhLi3I.png",
-        "handle": "@rd" },
+        "handle": "@rd"
+      },
       "content": {
         "text": "Je pense , donc je suis"
       },
@@ -30,8 +31,8 @@ $(document).ready(function() {
     }
   ]
 
-const createTweetElement = function(tweetObj) {
-const $tweet = $(`
+  const createTweetElement = function (tweetObj) {
+    const $tweet = $(`
   <article class="tweet">
         <div class='header'>
           <h4> <img src=${tweetObj.user.avatars}>  ${tweetObj.user.name}</h4>
@@ -45,20 +46,49 @@ const $tweet = $(`
           </div>
         </footer>
       </article>`);
-return $tweet;
-};
+    return $tweet;
+  };
 
 
-const renderTweets = function(data) {
+  const renderTweets = function (data) {
 
-  for(const tweet of data) {
-   const $tweet = createTweetElement(tweet);
-   //console.log("This is each tweet:" ,$tweet);
-   $('.tweetContainer').append($tweet);
+    // side effect
+    for (const tweet of data) {
+      const $tweet = createTweetElement(tweet);
+      //console.log("This is each tweet:" ,$tweet);
+      $('.tweetContainer').prepend($tweet);
+      // append / prepend
+
+    }
 
   }
+  renderTweets(data);
 
-}
-renderTweets(data);
+
+
+
+  $("form").on('submit', function (event) {
+    event.preventDefault();
+    const data = ($(this).serialize());
+
+    $.ajax({
+      url: '/tweets',
+      method: 'POST',
+      data: data
+    })
+      .then(function (info, statusCode) {
+
+        console.log('Success: ', info, statusCode);
+        return $.ajax({
+          url: '/tweets',
+          method: 'GET'
+        }).then(function (data) {
+          $('.tweetContainer').empty();
+        renderTweets(data) // -> undefined
+
+        })
+      })
+    
+  });
 
 });
