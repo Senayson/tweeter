@@ -81,10 +81,16 @@ $(document).ready(function () {
   $("form").on('submit', function (event) {
     event.preventDefault();
     const data = ($(this).serialize());
-    console.log(data);
+    console.log($(this).children('.tweet-text').val());
+  
     //Validation against empty data or overlimit character usage
-    if(data === null || data === '' || data.length > 140 ) {
-      alert('Error: This is not going through');
+    
+    if($(this).children('.tweet-text').val() === null || $(this).children('.tweet-text').val() === '') {
+      alert('Error: Empty tweet');
+      return;
+    }
+    if($(this).children('.tweet-text').val() && $(this).children('.tweet-text').val().length > 140){
+      alert('Error: Over character limit, Mate!')
       return;
     }
     
