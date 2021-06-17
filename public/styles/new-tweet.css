@@ -52,40 +52,48 @@ form label {
   background-color : rgb(49, 124, 236);
 }
 
-.eachTweet {
+.tweetContainer {
   display: flex;
   flex-direction: column;
   border-width: 5px;
   border-color: rgb(136, 133, 133);
   border-style: solid;
   margin-bottom: 5px;
+  padding-bottom: 0.5em;
+  padding-left: 1em;
+  padding-right: 1em;
   
   width: 80%;
  background-color: rgb(red, rgb(206, 209, 206), blue);
 }
 
-.eachTweet p {
+.tweetContainer p {
   display: flex;
-  justify-content: center;
-  width: 90%;
-  border-bottom-width: 5px;
-  border-bottom-color: rgb(136, 133, 133);
-  border-bottom-style: solid;
-  margin-bottom: 5px;
+  /* width: 90%; */
+  /* border-bottom: rgb(136, 133, 133) 5px solid; */
+  margin-bottom: 4px;
+  
+}
+
+section hr {
+
+  width: 100%;
+  border: 0.1em solid rgb(136, 133, 133);
 }
 
 .icons {
   display: flex;
-  justify-content: flex-end;
+  justify-content: end;
+  margin-right: 30px;
 }
 
-
-
-.eachTweet:hover {
+.tweetContainer:hover {
   box-shadow: 10px 10px grey;
 
 }
 .icons i{
+  width: 40px;
+  display: flex;
   color:rgb(49, 124, 236);
 }
 
