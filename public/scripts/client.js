@@ -5,31 +5,31 @@
  */
 $(document).ready(function () {
 
-  const data = [
-    {
-      "user": {
-        "name": "Newton",
-        "avatars": "https://i.imgur.com/73hZDYK.png"
-        ,
-        "handle": "@SirIsaac"
-      },
-      "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-      "created_at": 1461116232227
-    },
-    {
-      "user": {
-        "name": "Descartes",
-        "avatars": "https://i.imgur.com/nlhLi3I.png",
-        "handle": "@rd"
-      },
-      "content": {
-        "text": "Je pense , donc je suis"
-      },
-      "created_at": 1461113959088
-    }
-  ]
+  // const data = [
+  //   {
+  //     "user": {
+  //       "name": "Newton",
+  //       "avatars": "https://i.imgur.com/73hZDYK.png"
+  //       ,
+  //       "handle": "@SirIsaac"
+  //     },
+  //     "content": {
+  //       "text": "If I have seen further it is by standing on the shoulders of giants"
+  //     },
+  //     "created_at": 1461116232227
+  //   },
+  //   {
+  //     "user": {
+  //       "name": "Descartes",
+  //       "avatars": "https://i.imgur.com/nlhLi3I.png",
+  //       "handle": "@rd"
+  //     },
+  //     "content": {
+  //       "text": "Je pense , donc je suis"
+  //     },
+  //     "created_at": 1461113959088
+  //   }
+  // ]
 
   const createTweetElement = function (tweetObj) {
     const $tweet = $(`
@@ -62,33 +62,42 @@ $(document).ready(function () {
     }
 
   }
-  renderTweets(data);
+  //renderTweets(data);
 
+  const loadTweets = function (url) {
+    return $.ajax({
+      url: url,
+      method: 'GET',
+      dataType: 'json'
+    })
+    .then(function (data) {
+      $('.tweetContainer').empty();
+      renderTweets(data); // -> undefined
+    })
+  }
+  loadTweets('/tweets');
 
-
-
+//EVent handler for the form
   $("form").on('submit', function (event) {
     event.preventDefault();
     const data = ($(this).serialize());
-
+    console.log(data);
+    //Validation against empty data or overlimit character usage
+    if(data === null || data === '' || data.length > 140 ) {
+      alert('Error: This is not going through');
+      return;
+    }
+    
+//post request for the new tweet
     $.ajax({
       url: '/tweets',
       method: 'POST',
       data: data
     })
-      .then(function (info, statusCode) {
-
-        console.log('Success: ', info, statusCode);
-        return $.ajax({
-          url: '/tweets',
-          method: 'GET'
-        }).then(function (data) {
-          $('.tweetContainer').empty();
-        renderTweets(data) // -> undefined
-
-        })
+      .then(function () {
+        //
+        return loadTweets('/tweets')
+          
       })
-    
   });
-
 });
