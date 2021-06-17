@@ -47,23 +47,18 @@ const $tweet = $(`
       </article>`);
 return $tweet;
 };
-// const $tweet = createTweetElement(tweetObj);
-// $('.tweetContainer').append($tweet);
-// console.log($tweet);
-
 
 
 const renderTweets = function(data) {
 
   for(const tweet of data) {
    const $tweet = createTweetElement(tweet);
-   console.log("This is each tweet:" ,$tweet);
+   //console.log("This is each tweet:" ,$tweet);
    $('.tweetContainer').append($tweet);
 
   }
 
 }
-
 renderTweets(data);
 
 });

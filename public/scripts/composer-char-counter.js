@@ -1,10 +1,8 @@
 $(document).ready(function() {
   console.log("Document loaded"); 
  
-  //timeago.render(document.querySelectorAll('.Timestamp'));
-  //$("p.Timestamp").text('2008-07-17T09:24:17Z');
-  // jQuery("p.Timestamp").timeago();
-  timeago.render(document.querySelectorAll('.need_to_be_rendered'));
+  
+  //timeago.render(document.querySelectorAll('.need_to_be_rendered'));
 
   $(".tweet-text").on('input', function(){
     console.log("IN This EVEnt")
@@ -14,7 +12,7 @@ $(document).ready(function() {
     const $counter= $(this).parent().find('.counter');
     let counterVal = 140;
      counterVal -= inputVal;
-    console.log(counterVal);
+    //console.log(counterVal);
 
    $counter.val(counterVal);
   
@@ -24,6 +22,18 @@ $(document).ready(function() {
       $('.counter').removeClass('negative');
     }
    })
+
+
+   $("Form").on('submit', function(event){
+    event.preventDefault();
+    console.log('Submitted'); 
+  
+    // $.ajax(event, { method: 'POST' })
+    //   .then(function (event) {
+    //     console.log('Success: ', morePostsHtml);
+    //     $button.replaceWith(morePostsHtml);
+    //   });
+  });
 
 });
 
