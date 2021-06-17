@@ -54,15 +54,7 @@ form label {
 
 .tweetContainer {
   display: flex;
-  flex-direction: column;
-  border-width: 5px;
-  border-color: rgb(136, 133, 133);
-  border-style: solid;
-  margin-bottom: 5px;
-  padding-bottom: 0.5em;
-  padding-left: 1em;
-  padding-right: 1em;
-  
+  flex-direction: column;  
   width: 80%;
  background-color: rgb(red, rgb(206, 209, 206), blue);
 }
@@ -71,6 +63,30 @@ form label {
   display: flex;
   margin-bottom: 4px;
   
+}
+
+.tweet {
+  border-width: 5px;
+  border-color: rgb(136, 133, 133);
+  border-style: solid;
+  margin-bottom: 5px;
+  padding-bottom: 0.5em;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.tweet:hover {
+  box-shadow: 10px 10px grey;
+
+}
+
+.header {
+  display:flex;
+  justify-content: space-between;
+}
+
+.header span {
+  margin-top: 25px;
 }
 
 section hr {
@@ -85,10 +101,7 @@ section hr {
   margin-right: 30px;
 }
 
-.tweetContainer:hover {
-  box-shadow: 10px 10px grey;
 
-}
 .icons i{
   width: 40px;
   display: flex;

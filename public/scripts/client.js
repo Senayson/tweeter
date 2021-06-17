@@ -33,9 +33,9 @@ $(document).ready(function() {
 const createTweetElement = function(tweetObj) {
 const $tweet = $(`
   <article class="tweet">
-        <div>
-        
+        <div class='header'>
           <h4> <img src=${tweetObj.user.avatars}>  ${tweetObj.user.name}</h4>
+          <span>${tweetObj.user.handle}</span>
         </div>
         <p>${tweetObj.content.text}</p>
         <hr>
