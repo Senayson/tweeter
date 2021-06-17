@@ -80,6 +80,7 @@ $(document).ready(function () {
 //EVent handler for the form
   $("form").on('submit', function (event) {
     event.preventDefault();
+
     const data = ($(this).serialize());
     console.log($(this).children('.tweet-text').val());
   
@@ -105,5 +106,6 @@ $(document).ready(function () {
         return loadTweets('/tweets')
           
       })
+          $('form')[0].reset();
   });
 });

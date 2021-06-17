@@ -5,7 +5,7 @@ $(document).ready(function() {
   //timeago.render(document.querySelectorAll('.need_to_be_rendered'));
 
   $(".tweet-text").on('input', function(){
-    console.log("IN This EVEnt")
+    //console.log("IN This EVEnt")
     //Input length
     const inputVal = $(this).val().length;
     //
