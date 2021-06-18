@@ -7,6 +7,13 @@
  background-color: rgb(red, rgb(206, 209, 206), blue);
 }
 
+.new-tweet p{
+  display: flex;
+  justify-content: center;
+  border: red 5px solid;
+  color: red;
+}
+
 .tweet-text {
   width: 100%;
   border: none;

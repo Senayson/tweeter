@@ -4,7 +4,7 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 $(document).ready(function () {
-
+  $("#validator").hide();
   // const data = [
   //   {
   //     "user": {
@@ -31,6 +31,12 @@ $(document).ready(function () {
   //   }
   // ]
 
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
   const createTweetElement = function (tweetObj) {
     const $tweet = $(`
   <article class="tweet">
@@ -38,7 +44,7 @@ $(document).ready(function () {
           <h4> <img src=${tweetObj.user.avatars}>  ${tweetObj.user.name}</h4>
           <span>${tweetObj.user.handle}</span>
         </div>
-        <p>${tweetObj.content.text}</p>
+        <p>${escape(tweetObj.content.text)}</p>
         <hr>
         <footer class="tweeter">
           <span class="need_to_be_rendered" datetime="2016-07-07T09:24:17Z">${tweetObj.created_at}</span>
@@ -70,32 +76,50 @@ $(document).ready(function () {
       method: 'GET',
       dataType: 'json'
     })
-    .then(function (data) {
-      $('.tweetContainer').empty();
-      renderTweets(data); // -> undefined
-    })
+      .then(function (data) {
+        $('.tweetContainer').empty();
+        renderTweets(data); // -> undefined
+      })
   }
   loadTweets('/tweets');
+  //function to return validation error
+  const validationError = function (errorMessage) {
+    $("#validator").text(errorMessage).slideDown('slow');
+    setTimeout(()=>{
+      $("#validator").hide() 
+    }, 5000)
+    
+  }
+  //function to validate userinput
+  const validator = function (userInput) {
+    if (userInput === null || userInput === '') {
+       validationError("Please enter something");
+       return false;
+    }
 
-//EVent handler for the form
+    if (userInput && userInput.length > 4) {
+       validationError("Under 140 characters please");
+       return false;
+    }
+    return true;
+  }
+
+  //Event handler for the form
   $("form").on('submit', function (event) {
+    //prevent refresh page and data transmission
     event.preventDefault();
-
+    //Change data to queryformat
     const data = ($(this).serialize());
     console.log($(this).children('.tweet-text').val());
-  
+
     //Validation against empty data or overlimit character usage
-    
-    if($(this).children('.tweet-text').val() === null || $(this).children('.tweet-text').val() === '') {
-      alert('Error: Empty tweet');
-      return;
+    const userInput = $(this).children('.tweet-text').val();
+    //If validation failed, return false and exit form
+    if(!validator(userInput)){
+      return false;
     }
-    if($(this).children('.tweet-text').val() && $(this).children('.tweet-text').val().length > 140){
-      alert('Error: Over character limit, Mate!')
-      return;
-    }
-    
-//post request for the new tweet
+
+    //post request for the new tweet
     $.ajax({
       url: '/tweets',
       method: 'POST',
@@ -104,8 +128,8 @@ $(document).ready(function () {
       .then(function () {
         //
         return loadTweets('/tweets')
-          
+
       })
-          $('form')[0].reset();
+    $('form')[0].reset();
   });
 });
