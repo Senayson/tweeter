@@ -23,7 +23,7 @@ $(document).ready(function() {
         <p>${escape(tweetObj.content.text)}</p>
         <hr>
         <footer class="tweeter">
-          <span class="Timestamp" datetime="2016-07-07T09:24:17Z">${tweetObj.created_at}</span>
+          <span class="Timestamp" >`+timeago.format(tweetObj.created_at)+`</span>
           <div class="icons"><i class="fas fa-flag"></i> <i class="fas fa-retweet"></i> <i class="fas fa-heart"></i>
           </div>
         </footer>
@@ -81,7 +81,6 @@ $(document).ready(function() {
     event.preventDefault();
     //Change data to queryformat
     const data = ($(this).serialize());
-    console.log($(this).children('.tweet-text').val());
 
     //Validation against empty data or overlimit character usage
     const userInput = $(this).children('.tweet-text').val();

@@ -1,10 +1,6 @@
 $(document).ready(function() {
-  console.log("Document loaded");
 
-
-  timeago.render(document.querySelectorAll('#Timestamp'));
-
-  $(".tweet-text").on('input', function() {
+  $(".tweet-text").on('input', function () {
     //Input length
     const inputVal = $(this).val().length;
     //Counter variable

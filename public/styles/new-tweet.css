@@ -56,7 +56,6 @@ form label {
   border-width: 2.5px;
   border-color: rgb(93, 144, 240);
   display: flex;
-
   background-color : rgb(49, 124, 236);
 }
 
@@ -67,10 +66,10 @@ form label {
  background-color: rgb(red, rgb(206, 209, 206), blue);
 }
 
-.tweetContainer p {
+.tweet p {
   display: flex;
   margin-bottom: 4px;
-  word-wrap: break-word;
+  word-break: break-all;
 }
 
 .tweet {
