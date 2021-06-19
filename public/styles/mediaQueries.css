@@ -1,0 +1,29 @@
+
+/* Tablet styles */
+
+@media only screen and (min-width: 768px) {
+
+  body{
+    display: flex;
+    margin-top: 150px;
+    
+  }
+
+
+  header {
+    display: flex;
+    align-content: center;
+    justify-content: space-around;
+    /* margin-right: 25px; */
+    margin-left: 25px;
+  }
+}
+
+/* Laptop and Desktop styles */
+
+@media only screen and (min-width: 1024px) {
+  main{
+   
+    max-width: 1024px;
+  }
+}

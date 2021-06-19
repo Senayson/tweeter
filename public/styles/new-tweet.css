@@ -12,6 +12,7 @@
   justify-content: center;
   border: red 5px solid;
   color: red;
+  
 }
 
 .tweet-text {
@@ -69,7 +70,7 @@ form label {
 .tweetContainer p {
   display: flex;
   margin-bottom: 4px;
-  
+  word-wrap: break-word;
 }
 
 .tweet {
